@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import ConfettiSwiftUI
 
 struct ContentView: View {
     @State private var counter = 0
+    @State private var confettiCounter = 0
     
     var body: some View {
         VStack(spacing: 30) {
@@ -19,6 +21,9 @@ struct ContentView: View {
             
             Button(action: {
                 counter += 1
+                if counter % 100 == 0 {
+                    confettiCounter += 1
+                }
             }) {
                 Text("Tap me!")
                     .font(.title)
@@ -30,7 +35,7 @@ struct ContentView: View {
             }
             
         }
-        .padding()
+        .confettiCannon(trigger: $confettiCounter, num: 30, colors: [.red, .blue, .green, .yellow])
     }
 }
 
