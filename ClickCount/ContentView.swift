@@ -35,6 +35,7 @@ struct FloatingText: View {
     }
 }
 
+// MARK: Main ContentView
 struct ContentView: View {
     @State private var counter = 0
     @State private var confettiCounter = 0
@@ -126,7 +127,7 @@ struct ContentView: View {
         }
         .confettiCannon(trigger: $confettiCounter, num: 30, colors: [.red, .blue, .green, .yellow])
     }
-
+    // MARK: playSound Func
     func playSound(named name: String) {
         guard let url = Bundle.main.url(forResource: name, withExtension: "mp3") else { return }
         do {
