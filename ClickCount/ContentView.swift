@@ -50,7 +50,7 @@ struct ContentView: View {
             
             VStack(spacing: 30) {
 
-                Spacer(minLength: 50)
+                Spacer(minLength: 50) // espaço do topo
 
                 Text("Clicks: \(counter)")
                     .font(.largeTitle)
