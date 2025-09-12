@@ -66,8 +66,8 @@ struct ContentView: View {
                     generator.impactOccurred()
 
                     // Click Sound
-                    playSound(named: "click")
-
+                    playSound(.click)
+                
                     // Floating number
                     let newFloat = FloatingNumber(value: 1)
                     floatingNumbers.append(newFloat)
@@ -78,7 +78,7 @@ struct ContentView: View {
                     // Confetti each 100 clicks
                     if counter % 100 == 0 {
                         confettiCounter += 1
-                        playSound(named: "milestone")
+                        playSound(.milestone)
                     }
 
                 }) {
@@ -94,7 +94,7 @@ struct ContentView: View {
                 }
 
                 Spacer()
-            } 
+            }
             .padding()
 
             // DarkMode Toggle Button
@@ -128,8 +128,14 @@ struct ContentView: View {
         .confettiCannon(trigger: $confettiCounter, num: 30, colors: [.red, .blue, .green, .yellow])
     }
     // MARK: playSound Func
-    func playSound(named name: String) {
-        guard let url = Bundle.main.url(forResource: name, withExtension: "mp3") else { return }
+    
+    enum Sound: String {
+        case click
+        case milestone
+    }
+
+    func playSound(_ sound: Sound) {
+        guard let url = Bundle.main.url(forResource: sound.rawValue, withExtension: "mp3") else { return }
         do {
             audioPlayer = try AVAudioPlayer(contentsOf: url)
             audioPlayer?.play()
@@ -137,6 +143,7 @@ struct ContentView: View {
             print("Erro ao tocar o som: \(error.localizedDescription)")
         }
     }
+
 }
 
 #Preview {
