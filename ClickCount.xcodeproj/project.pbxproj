@@ -37,8 +37,8 @@
 		C59576E92E7384FE00E89050 = {
 			isa = PBXGroup;
 			children = (
-				C59576F42E7384FE00E89050 /* ClickCount */,
 				C59576F32E7384FE00E89050 /* Products */,
+				C59576F42E7384FE00E89050 /* ClickCount */,
 			);
 			sourceTree = "<group>";
 		};

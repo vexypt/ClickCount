@@ -94,7 +94,7 @@ struct ContentView: View {
                 }
 
                 Spacer()
-            }
+            } 
             .padding()
 
             // DarkMode Toggle Button
